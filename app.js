@@ -51,6 +51,9 @@ app.post('/recognize', (req, res) => {
 
             text = await recognize(data)
             res.send(text)
+            fs.unlink('./uploads/'+req.file.originalname, err => {
+                console.log(err)
+            })
        })
     })
 })
